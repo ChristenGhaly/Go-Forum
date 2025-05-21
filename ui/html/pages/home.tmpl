@@ -1,0 +1,25 @@
+{{define "title"}}Home{{end}}
+
+{{define "main"}}
+    <h2>Latest Threads</h2>
+    {{if .Threads}}
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Date Created</th>
+            <th>User</th>
+            <th>Last Message</th>
+        </tr>
+        {{range .Threads}}
+        <tr>
+            <td><a href="/thread/view/{{ .Id}}">{{ .Title}}</a></td>
+            <td>{{ .Date}}</td>
+            <td>{{ .UserName}}</td>
+            <td>{{ .LastMsg}}</td>
+        </tr>
+        {{ end }}
+    </table>
+    {{ else }}
+        <p>There's no threads to show!</p>
+    {{ end }}
+{{end}}

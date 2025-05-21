@@ -1,0 +1,36 @@
+{{define "title"}}{{ .Thread.Title}}{{end}}
+
+{{define "main"}}
+{{with .Thread}}
+<div class="thread">
+    <table>
+        <tr>
+            <th>Thread Title</th>
+            <th>Created Date</th>
+        </tr>
+        <tr>
+            <td>{{ .Title}}</td>
+            <td>{{ .Date}}</td>
+        </tr>
+    </table>
+
+    {{if .Messages}}
+    <h2>{{ .Title}} Thread's Messages:</h2>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>User Name</th>
+            <th>Message Content</th>
+        </tr>
+        {{range .Messages}}
+        <tr>
+            <td>{{ .Date}}</td>
+            <td>{{ .UserName}}</td>
+            <td><a href="/thread/{{ .ThreadId}}/message/view/{{ .Id}}">{{ .Body}}</a></td>
+        </tr>
+        {{end}}
+    </table>
+    {{end}}
+</div>
+{{end}}
+{{end}}

@@ -1,0 +1,19 @@
+{{define "title"}}{{ .User.Name}}'s Account{{end}}
+
+{{define "main"}}
+    <h2>Account Info Page</h2>
+    {{with .User}}
+        <div class="user">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>E-mail</th>
+                </tr>
+                <tr>
+                    <td>{{ .Name}}</td>
+                    <td>{{ .Email}}</td>
+                </tr>
+            </table>
+        </div>
+    {{end}}
+{{end}}

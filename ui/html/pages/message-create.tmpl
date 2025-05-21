@@ -1,0 +1,20 @@
+{{define "title"}}Create Message{{end}}
+
+{{define "main"}}
+<h2>Create Message</h2>
+<form action="/thread/view/1/message/create" method="POST">
+    <label>Thread Title:</label>
+        {{with .Form.FieldErrors.title}}
+    <label class='error'>{{.}}</label>
+    {{end}}
+    <input type="text" name="title" value="{{.Form.ThreadTitle}}">
+
+    <label>Message:</label>
+    {{with .Form.FieldErrors.content}}
+        <label class='error'>{{.}}</label>
+    {{end}}
+    <textarea name="content">{{ .Form.Content}}</textarea>
+
+    <button type="submit">Post</button>
+</form>
+{{end}}

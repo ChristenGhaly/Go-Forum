@@ -1,0 +1,21 @@
+{{define "title"}}{{ .Msg.ThreadTitle}}{{end}}
+
+{{define "main"}}
+    {{with .Msg}}
+    <div class="message">
+        <table>
+            <tr>
+                <th>Thread Title</th>
+                <th>User Name</th>
+                <th>Message</th>
+            </tr>
+
+            <tr>
+                <td>{{ .ThreadTitle}}</td>
+                <td>{{ .UserName}}</td>
+                <td>{{ .Body}}</td>
+            </tr>
+        </table>
+    </div>
+    {{end}}
+{{end}}
