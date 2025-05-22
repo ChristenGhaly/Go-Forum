@@ -25,7 +25,11 @@ type application struct {
 }
 
 func main() {
-	addr := flag.String("addr", ":4000", "HTTP network address")
+	port := os.Getenv("PORT")
+	if port == "" {
+    	port = "8080" // fallback for local dev
+	}
+	addr := flag.String("addr", port, "HTTP network address")
 	dbPath := flag.String("db", "./forum.db", "Path to SQLite database")
 	flag.Parse()
 
