@@ -29,7 +29,7 @@ func main() {
 	if port == "" {
     	port = "8080" // fallback for local dev
 	}
-	addr := flag.String("addr", port, "HTTP network address")
+	addr := flag.String("addr", ":"+port, "HTTP network address")
 	dbPath := flag.String("db", "./forum.db", "Path to SQLite database")
 	flag.Parse()
 
